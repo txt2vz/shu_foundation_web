@@ -1,0 +1,82 @@
+table, th {
+  	border: 3px solid blueviolet;
+  	border-radius: 5px;
+}
+.shaded {
+	background-color:LightGray;
+}
+
+.bookLink {
+	font-size:110%;
+	text-decoration: none;
+}
+
+/* unvisited link */
+.bookLink:link {
+  color: blue;
+}
+
+/* visited link */
+.bookLink:visited {
+  color: green;
+}
+
+/* mouse over link */
+.bookLink:hover {
+  color: hotpink;
+}
+
+/* selected link */
+.bookLink:active {
+  color: black;
+}
+
+tr:nth-child(even) {background: #CCC}
+tr:nth-child(odd) {background: #FFF}
+
+
+
+
+/* Below here is CSS for Task 5 of workheet 3.2c Adding CSS to Tintin Site  */
+
+p {
+	color:blue;
+}
+
+q {
+	font-size:20px;
+}
+
+li {
+	font-size:18px;
+	font-family:ariel;
+}
+
+
+
+q {
+  	border: 2px solid green;
+  	border-radius: 5px;
+}
+
+.padding {
+  	padding-top: 20px;
+	padding-right: 80px;
+	padding-bottom: 20px;
+  	padding-left: 80px;
+  	margin-left: 100px; 
+}
+
+.margins {
+  		margin-top: 50px;
+   		margin-bottom: 50px;
+}
+
+.borderHidden {
+	border: hidden;
+}
+
+
+.center {
+  text-align: center;
+}
