@@ -27,7 +27,7 @@
             document.getElementById("earth").innerHTML = "Earth";
         }
 
-        let mars ={
+        const mars ={
             name: "Mars",
             mass: 0.642,
             moons: 2,
@@ -36,7 +36,7 @@
             magnetiField: false
         }
 
-        let jupiter = {
+        const jupiter = {
             name: "Jupiter",
             mass: 1898,
             moons: 79,
@@ -46,20 +46,30 @@
         }
 
         function marsInfo(){
-            let info = "Mars diameter: " + mars.diameter + " mars magnetic field: " + mars.magnetiField;
+            const info = "Mars diameter: " + mars.diameter + " mars magnetic field: " + mars.magnetiField;
             document.getElementById("info").innerHTML = info;
         }
 
-        let planets =[jupiter,mars];
+        const planets =[jupiter,mars];
 
         function sumMoons(){
-            let totalM=0;
+            let totalMoons=0;
             for (let p in  planets){
-                console.log("p " + planets[p].name);
-                totalM = totalM + planets[p].moons;
+                
+                totalMoons = totalMoons + planets[p].moons;
             }
-            console.log("moons " + totalM);
-            return totalM;
+            console.log("Total moons " + totalM);
+            return totalMoons;
+        }
+
+        function totalMass(){
+            let totalMass=0;
+            for (let p in  planets){
+                
+                totalMass = totalMass + planets[p].mass;
+            }
+            console.log("Total mass: " + totalMass);
+            return totalMass;
         }
   
         function showMarsFromArray(){
@@ -77,6 +87,17 @@
             let infoP = "Planets total: " + planets.length + " total moons: " + numberOfMoons;
             document.getElementById("planets_info").innerHTML = infoP;
         }
+
+        function countMoonsMagnetic(){
+            let totalMagneticMoons = 0;
+            for (let p in  planets){
+                
+                if (planets[p].magneticField){
+                  totalMagneticMoons = totalMagneticMoons + planets[p].moons;                 
+                }
+            }
+            return totalMagneticMoons;
+        }
     </script>
 
 </head>
@@ -91,7 +112,7 @@ Visible Planets
     <li>Venus</li>
     <li id="earth" onmouseover="updateEarth()" onmouseout="returnEarth()">Earth</li>
     <li id="mars" onmouseover="marsInfo()">Mars</li>
-    <li id="jupiter" onmouseover="showJupiterInfo()">Jupiter</li>
+    <li id="jupiter" >Jupiter</li>
     <li>Saturn</li>
 </ol>
 
@@ -103,6 +124,26 @@ Visible Planets
 
 <div id ="mars_info" onmouseover="showMarsFromArray()">mars</div>
 <div id="planets_info" onmouseover="showPlanetsInfo()">planets</div>
+
+<button type="button" onclick="document.getElementById('countPlanets').innerHTML = planets.length ">Count planets</button>
+<button type="button" onclick="document.getElementById('totalMass').innerHTML = totalMass() ">Total Mass</button>
+<button type="button" onclick="document.getElementById('countMoonsMagnetic').innerHTML= countMoonsMagnetic()">Count moons with magnetic field</button>
+
+<br>
+<br>
+
+<table border=1 style="text-align:center">
+	<tr>
+		<th>Count of planets</th>
+		<th>Total mass of planets	</th>
+		<th>No of moons of planets with magnetic field</th>
+	</th>
+	<tr>
+		<td id="countPlanets">test</td>
+		<td id="totalMass">		</td>
+		<td id="countMoonsMagnetic"></td>
+	</tr>
+</table>
 
 </body>
 </html>
